@@ -23,10 +23,11 @@ public class CityController {
         return this.repository.findById(id);
     }
 
-    @GetMapping(value = "/cities", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Flux<Object> all() {
+    @GetMapping(value = "/cities")
+    public Flux<City> all() {
         return this.repository.findAll()
-                .filter(c -> c.getCountry().equals("USA"))
-                .map(City::getName);
+                //.filter(c -> c.getCountry().equals("USA"))
+                //.map(City::getName)
+        ;
     }
 }
